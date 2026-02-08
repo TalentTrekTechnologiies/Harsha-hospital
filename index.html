@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital - Your Health, Our Priority</title>
+    <meta name="description" content="World-class medical care with specialized departments, expert doctors, and advanced facilities.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Emergency Contact Widget (Floating) -->
+    <div id="emergency-widget" class="emergency-widget">
+        <button class="emergency-btn" onclick="toggleEmergencyInfo()">
+            <i class="fas fa-ambulance"></i>
+            <span>Emergency</span>
+        </button>
+        <div id="emergency-info" class="emergency-info hidden">
+            <h3>Emergency Contacts</h3>
+            <div class="emergency-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <strong>Emergency:</strong>
+                    <a href="tel:+1555EMERGENCY">+1-555-EMERGENCY</a>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <i class="fas fa-ambulance"></i>
+                <div>
+                    <strong>Ambulance:</strong>
+                    <a href="tel:+1555AMBULANCE">+1-555-AMBULANCE</a>
+                </div>
+            </div>
+            <p class="emergency-note">Available 24/7</p>
+        </div>
+    </div>
+
+    <!-- Live Chat Button -->
+    <button id="chat-button" class="chat-button" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="chat-widget hidden">
+        <div class="chat-header">
+            <h3><i class="fas fa-user-nurse"></i> Chat with us</h3>
+            <button onclick="toggleChat()" class="close-chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="bot-message">
+                <p>Hello! How can I help you today?</p>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="Type your message..." onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-hospital"></i>
+                <span>MediCare Hospital</span>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="appointments.html">Book Appointment</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin/login.html" class="btn-admin">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Your Health, Our Priority</h1>
+            <p class="hero-subtitle">World-class medical care with compassion and expertise</p>
+            <div class="hero-buttons">
+                <a href="appointments.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Book Appointment
+                </a>
+                <a href="departments.html" class="btn btn-secondary">
+                    <i class="fas fa-building"></i> Our Departments
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 Emergency</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-user-md"></i>
+                    <span>Expert Doctors</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-hospital-alt"></i>
+                    <span>Modern Facilities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3 class="stat-number" data-count="150">0</h3>
+                    <p>Expert Doctors</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3 class="stat-number" data-count="20">0</h3>
+                    <p>Specialized Departments</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3 class="stat-number" data-count="50000">0</h3>
+                    <p>Happy Patients</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award"></i>
+                    <h3 class="stat-number" data-count="25">0</h3>
+                    <p>Years of Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2>Leading Healthcare Provider</h2>
+                <p>Committed to providing exceptional medical care with advanced technology and compassionate service</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800" alt="Hospital">
+                    <div class="about-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>ISO Certified</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Excellence in Healthcare Since 1999</h3>
+                    <p>MediCare Hospital has been at the forefront of medical excellence for over 25 years. We combine cutting-edge technology with compassionate care to provide our patients with the best possible outcomes.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>State-of-the-art medical equipment</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Highly qualified and experienced doctors</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 emergency services</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comprehensive insurance coverage</span>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>Specialized Departments</h2>
+                <p>Comprehensive medical services across multiple specialties</p>
+            </div>
+            <div id="departments-grid" class="departments-grid">
+                <!-- Departments will be loaded dynamically -->
+            </div>
+            <div class="text-center">
+                <a href="departments.html" class="btn btn-outline">View All Departments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2>Meet Our Expert Doctors</h2>
+                <p>Highly qualified medical professionals dedicated to your health</p>
+            </div>
+            <div id="doctors-grid" class="doctors-grid">
+                <!-- Doctors will be loaded dynamically -->
+            </div>
+            <div class="text-center">
+                <a href="doctors.html" class="btn btn-outline">View All Doctors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Our Patients Say</h2>
+                <p>Real experiences from real patients</p>
+            </div>
+            <div id="testimonials-slider" class="testimonials-slider">
+                <!-- Testimonials will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Medical Assistance?</h2>
+                <p>Book an appointment with our expert doctors today</p>
+                <a href="appointments.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-calendar-check"></i> Book Appointment Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Health Blog</span>
+                <h2>Latest Health Articles</h2>
+                <p>Stay informed with our health tips and medical news</p>
+            </div>
+            <div id="blog-grid" class="blog-grid">
+                <!-- Blog posts will be loaded dynamically -->
+            </div>
+            <div class="text-center">
+                <a href="blog.html" class="btn btn-outline">Read More Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-hospital"></i> MediCare Hospital</h3>
+                    <p>Your trusted healthcare partner providing world-class medical services with compassion and excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="appointments.html">Book Appointment</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Health Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Insurance & Payment</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Health Street, Medical District, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> +1-555-EMERGENCY</p>
+                        <p><i class="fas fa-envelope"></i> info@medicare-hospital.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Emergency | OPD: 8 AM - 8 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
