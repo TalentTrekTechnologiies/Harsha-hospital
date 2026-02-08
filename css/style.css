@@ -1034,3 +1034,50 @@ a:hover {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/* Align items in the center of the navbar */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Fix the Logo alignment */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-brand i {
+    font-size: 2.5rem;
+    color: #2563eb; /* Professional Blue */
+}
+
+/* Stack the names neatly if they are long */
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e40af;
+}
+
+.sub-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+/* Ensure menu items stay vertically centered */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+}
