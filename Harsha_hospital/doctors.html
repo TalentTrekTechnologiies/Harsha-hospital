@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - MediCare Hospital</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Emergency Widget -->
+    <div id="emergency-widget" class="emergency-widget">
+        <button class="emergency-btn" onclick="toggleEmergencyInfo()">
+            <i class="fas fa-ambulance"></i>
+            <span>Emergency</span>
+        </button>
+        <div id="emergency-info" class="emergency-info hidden">
+            <h3>Emergency Contacts</h3>
+            <div class="emergency-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <strong>Emergency:</strong>
+                    <a href="tel:+1555EMERGENCY">+1-555-EMERGENCY</a>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <i class="fas fa-ambulance"></i>
+                <div>
+                    <strong>Ambulance:</strong>
+                    <a href="tel:+1555AMBULANCE">+1-555-AMBULANCE</a>
+                </div>
+            </div>
+            <p class="emergency-note">Available 24/7</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-hospital"></i>
+                <span>MediCare Hospital</span>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="doctors.html" class="active">Doctors</a></li>
+                <li><a href="appointments.html">Book Appointment</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin/login.html" class="btn-admin">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Expert Doctors</h1>
+            <p>Highly qualified medical professionals dedicated to your health</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="section">
+        <div class="container">
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="doctor-search" placeholder="Search by name or specialty...">
+                </div>
+                <div class="filter-box">
+                    <label for="department-filter"><i class="fas fa-filter"></i> Filter by Department:</label>
+                    <select id="department-filter">
+                        <option value="">All Departments</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="doctors-list" class="doctors-detailed-grid">
+                <!-- Doctors will be loaded dynamically -->
+            </div>
+
+            <div id="no-results" class="no-results hidden">
+                <i class="fas fa-user-md-slash"></i>
+                <p>No doctors found matching your criteria.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-hospital"></i> MediCare Hospital</h3>
+                    <p>Your trusted healthcare partner providing world-class medical services.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="appointments.html">Book Appointment</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Health Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Health Street, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> +1-555-EMERGENCY</p>
+                        <p><i class="fas fa-envelope"></i> info@medicare-hospital.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/doctors.js"></script>
+</body>
+</html>
